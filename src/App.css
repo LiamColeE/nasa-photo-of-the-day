@@ -31,3 +31,31 @@
     transform: rotate(360deg);
   }
 }
+
+.card {
+  width: 400px;
+  height: 500px;
+  display: block;
+  margin: 30px auto;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+}
+
+.ImageDisplay{
+  width:auto;
+  height:50%;
+}
+
+.InfoDisplay h1{
+  font-size: 20px;
+}
+.InfoDisplay h2{
+  font-size: 15px;
+}
+.InfoDisplay p{
+  font-size: 10px;
+}
+
+

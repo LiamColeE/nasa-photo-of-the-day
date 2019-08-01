@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
-import ImageDisplay from "./Components/ImageDisplay";
-import InfoDisplay from "./Components/InfoDisplay";
+import Card from "./Components/Card"
 
 
 function App() {
@@ -11,13 +10,14 @@ function App() {
   let failed = false;
   useEffect(() => {
     axios
-      .get("https://api.nasa.gov/planetary/apod?api_key=ZDDAUYnXVNFAmOl4J1zFYoLKttoHZV6Yt0gZ3JTR")
+      .get("https://api.nasa.gov/planetary/apod?api_key=ZDDAUYnXVNFAmOl4J1zFYoLKttoHZV6Yt0gZ3JTR&date=2015-09-07&")
       .then(res => {
         console.log(res);
         setPicture(res.data.hdurl);
-        setInfo({ copyright: res.data.copyright,
-                  title: res.data.title,
-                  explanation: res.data.explanation
+        setInfo({
+          copyright: res.data.copyright,
+          title: res.data.title,
+          explanation: res.data.explanation
 
         })
       })
@@ -31,10 +31,7 @@ function App() {
   if (picture === "false") return <h3>The server said you cant have an image today</h3>;
   return (
     <div className="App">
-      <p>
-       <ImageDisplay image = { picture } />
-       <InfoDisplay info={ info }/>
-      </p>
+        <Card image={picture} info={info}/>
     </div>
   );
 }
